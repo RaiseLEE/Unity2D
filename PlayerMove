@@ -1,0 +1,31 @@
+ if (Input.GetAxisRaw("Horizontal") != 0)
+        {
+            if (Input.GetAxisRaw("Horizontal") > 0)
+            {
+                sr.sprite = tankSprite[1];
+                BulletEular = new Vector3(0, 0, 270);
+                transform.Translate(transform.right * Speed * Time.fixedDeltaTime);
+            }
+            else if (Input.GetAxisRaw("Horizontal") < 0)
+            {
+                sr.sprite = tankSprite[3];
+                BulletEular = new Vector3(0, 0, 90);
+                transform.Translate(transform.right * -Speed * Time.fixedDeltaTime);
+            }
+        }
+        else
+        {
+            if (Input.GetAxisRaw("Vertical") > 0)
+            {
+                sr.sprite = tankSprite[0];
+                BulletEular = new Vector3(0, 0, 0);
+                PlayerTank.transform.Translate(transform.up * Speed * Time.fixedDeltaTime);
+            }
+            else if (Input.GetAxisRaw("Vertical") < 0)
+            {
+                sr.sprite = tankSprite[2];
+                BulletEular = new Vector3(0, 0, 180);
+                PlayerTank.transform.Translate(transform.up * -Speed * Time.fixedDeltaTime);
+            }
+        }
+    }
